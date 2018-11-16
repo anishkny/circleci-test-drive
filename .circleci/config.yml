@@ -11,7 +11,7 @@ commands:
       - run: echo << parameters.to >>
 
 jobs:
-  myjob:
+  build:
     docker:
       - image: "circleci/node:9.6.1"
     steps:
