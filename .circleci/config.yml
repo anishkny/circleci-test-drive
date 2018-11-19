@@ -20,6 +20,7 @@ orbs:
         parameters:
           greeting_name:
             type: string
+            default: hola
         steps:
           - run: echo "hello <<parameters.greeting_name>>, from the inline command"
     executors:
