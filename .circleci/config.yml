@@ -1,19 +1,41 @@
 version: 2.1
 
-commands:
-  sayhello:
-    description: "A very simple command for demonstration purposes"
-    parameters:
-      to:
-        type: string
-        default: "Hello World"
-    steps:
-      - run: echo << parameters.to >>
+description: This is an inline job
 
-jobs:
-  build:
-    docker:
-      - image: alpine
-    steps:
-      - sayhello:
-          to: "Anish"
+orbs:
+  inline_example:
+    jobs:
+      my_inline_job:
+        parameters:
+          greeting_name:
+            description: # a helpful description
+            type: string
+            default: olleh
+        executor: my_inline_executor
+        steps:
+          - my_inline_command:
+              name: <<parameters.greeting_name>>
+    commands:
+      my_inline_command:
+        parameters:
+          greeting_name:
+            type: string
+        steps:
+          - run: echo "hello <<parameters.greeting_name>>, from the inline command"
+    executors:
+      my_inline_executor:
+        parameters:
+          version:
+            type: string
+            default: "2.4"
+        docker:
+          - image: circleci/ruby:<<parameters.version>>
+
+workflows:
+  build-test-deploy:
+    jobs:
+      - inline_example/my_inline_job:
+          name: mybuild # best practice is to name each orb job
+      - inline_example/my_inline_job:
+          name: mybuild2
+          greeting_name: world
