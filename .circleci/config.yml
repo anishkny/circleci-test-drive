@@ -36,9 +36,9 @@ orbs:
 workflows:
   build-test-deploy:
     jobs:
-      - sayhello/sayhello:
-          name: my_orb
-          to: अनीश
+#       - sayhello/sayhello:
+#           name: my_orb
+#           to: अनीश
       - inline_example/my_inline_job:
           name: inline_orb
           greeting_name: world
