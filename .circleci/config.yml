@@ -4,6 +4,7 @@ description: This is an inline job
 
 orbs:
   hello: circleci/hello-build@0.0.7
+  sayhello: anishkny/sayhello@dev:first
   inline_example:
     jobs:
       my_inline_job:
@@ -35,8 +36,11 @@ orbs:
 workflows:
   build-test-deploy:
     jobs:
+      - sayhello/sayhello:
+          name: my_orb
+          to: अनीश
       - inline_example/my_inline_job:
-          name: run_inline_orb
+          name: inline_orb
           greeting_name: world
       - hello/hello-build:
-          name: run_circleci_certified_orb
+          name: circleci_orb
