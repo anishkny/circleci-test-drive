@@ -3,6 +3,7 @@ version: 2.1
 description: This is an inline job
 
 orbs:
+  hello: circleci/hello-build@0.0.7
   inline_example:
     jobs:
       my_inline_job:
@@ -35,7 +36,7 @@ workflows:
   build-test-deploy:
     jobs:
       - inline_example/my_inline_job:
-          name: mybuild # best practice is to name each orb job
-      - inline_example/my_inline_job:
-          name: mybuild2
+          name: run_inline_orb
           greeting_name: world
+      - hello/hello-build:
+          name: run_circleci_certified_orb
