@@ -1,6 +1,6 @@
 # anishkny/sayhello orb definition
 # To deploy, execute: circleci orb publish sayhello.orb.yml anishkny/sayhello@dev:first
-# See usage in ../.circleci/config.yml
+# See usage in .circleci/config.yml
 
 version: 2.1
 
@@ -14,4 +14,4 @@ jobs:
       - image: alpine
     steps:
       - run: echo << parameters.to >>
-      - run: find . && ls -lhta 
+      - run: find . && ls -lhta
