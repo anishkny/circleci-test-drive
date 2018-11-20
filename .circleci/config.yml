@@ -23,7 +23,10 @@ orbs:
           greeting_name:
             type: string
         steps:
-          - run: echo "hello <<parameters.greeting_name>>, from the inline command"
+          - run: |
+              echo "hello <<parameters.greeting_name>>, from the inline command"
+              find .
+              ls -lhta
     executors:
       my_inline_executor:
         parameters:
