@@ -3,8 +3,8 @@ version: 2.1
 description: This is an inline job
 
 orbs:
-  hello: circleci/hello-build@0.0.7
-  sayhello: anishkny/sayhello@0.0.4
+  hello: circleci/hello-build@0
+  sayhello: anishkny/sayhello@0
   inline_example:
     jobs:
       my_inline_job:
