@@ -15,6 +15,7 @@ orbs:
             default: olleh
         executor: my_inline_executor
         steps:
+          - checkout
           - my_inline_command:
               greeting_name: <<parameters.greeting_name>>
     commands:
