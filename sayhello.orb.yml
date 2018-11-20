@@ -1,5 +1,11 @@
 # anishkny/sayhello orb definition
-# To deploy, execute: circleci orb publish sayhello.orb.yml anishkny/sayhello@dev:first
+#
+# To publish mutable dev version, execute:
+#   circleci orb publish sayhello.orb.yml anishkny/sayhello@dev:first
+#
+# To publish immutable released version, execute:
+#   circleci orb publish promote anishkny/sayhello@dev:first patch
+#
 # See usage in .circleci/config.yml
 
 version: 2.1
@@ -15,4 +21,4 @@ jobs:
     steps:
       - checkout
       - run: echo << parameters.to >>
-      - run: find . && ls -lhta
+      - run: ls -lhta

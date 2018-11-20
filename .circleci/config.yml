@@ -4,7 +4,7 @@ description: This is an inline job
 
 orbs:
   hello: circleci/hello-build@0.0.7
-  sayhello: anishkny/sayhello@dev:first
+  sayhello: anishkny/sayhello@0.0.4
   inline_example:
     jobs:
       my_inline_job:
