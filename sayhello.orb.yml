@@ -13,5 +13,6 @@ jobs:
     docker:
       - image: alpine
     steps:
+      - checkout
       - run: echo << parameters.to >>
       - run: find . && ls -lhta
